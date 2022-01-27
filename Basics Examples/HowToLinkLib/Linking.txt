@@ -1,0 +1,41 @@
+types of linking
+=========================================
+static linking  --->    myproject.lib
+dynamic linking  --- >   importlib and dll files
+=============x====================x======
+
+why thre is different compiler
+=========================================
+One of C++'s distinguishing features is that there is no company or organization behind it. There is no compiler to rule them all. Competition leads to innovation, best innovations are added to the international standard, so the losers have to implement the winners' features or fade into obscurity.
+
+Initially, from 1985 to 1991, there was a reference implementation, Bjarne's compiler CFront, but since the company he worked at decided against turning CFront into a commercial product (mostly -- a few companies got the code to build their own derivations), and since the language was so practical, everyone wanted to be able to compile C++ where CFront wasn't available. Zortech, Oregon, Oasys, Watcom, HP, and others started making their own C++ compilers already in the 1980s.
+
+One reason for the today's variety that I can point out is that every major hardware vendor knows how to use its own hardware best; so IBM, Intel, Oracle, and HP all have their own C++ compilers, which create optimal code on their latest hardware (those are just the ones I'm using - other vendors have more ).
+
+Microsoft has one too, and it's the best choice if you plan to integrate your product with their solutions, and of course Linux and the open source community has GNU g++ since forever and now has the new superstar Clang++ (with some help from Apple and Google). But as much as I love clang++ for its full support of C++14 already, I will still use XL C++ to compile on a p795.
+===========x===============x==============x==========
+
+
+
+macro statement before fucntion declaration( not cleared yet )
+========================================================
+it is compiler specific 
+================x=================x=================x===========
+
+
+Why does DLL need lib?
+=====================================
+The lib file is an import library file, which allows the final executable to contain an import address table (IAT) by which all DLL function calls are referenced. Basically, allowing the functions to be looked up. You can read about it here
+=============x============x==============x==================
+
+
+what is pdp file ( generated during dll generation )
+=================================================================
+A PDB file contains information for the debugger to work with. There's less information in a Release build than in a Debug build anyway. But if you want it to not be generated at all, go to your project's Build properties, select the Release configuration, click on "Advanced..." and under "Debug Info" pick "None".
+==========x============x===========x=========================
+
+
+what is incremental linking
+=================================================================
+Incremental linking links your exe/dll in a way which makes it easier for the linker to update the existing exe/dll when you make a small change and re-compile. So, incremental linking just makes it faster to compile and link your project
+==========x============x===========x=========================
