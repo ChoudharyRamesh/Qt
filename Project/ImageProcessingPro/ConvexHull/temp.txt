@@ -1,0 +1,177 @@
+for(int i=0;i<points.size();i++)
+{
+    QPointF p = points.at(i);
+    double x = p.x();
+    double y = p.y();
+    x -= around.x();
+    y -= around.x();
+    double tx = x;
+    double sinTheta = sin(theta);
+    double cosTheta = cos(theta);
+    x = x * cosTheta - y * sinTheta;
+    y = tx * sinTheta + y * cosTheta;
+    x += around.x();
+    y += around.x();
+    points[i]=QPointF(x,y);
+}
+return points;
+
+
+
+
+QImage tempImage("C:/ShareShotTransfer/IMG_20210319_231502.jpg");
+tempImage = tempImage.scaled(310,210,Qt::KeepAspectRatio,Qt::SmoothTransformation);
+for(int x=0;x<tempImage.width();x++)
+{
+    for(int y=0;y<tempImage.height();y++)
+    {
+        if(qGray(tempImage.pixel(x,y))>190)
+            tempImage.setPixel(x,y,qRgb(0,0,0));
+        else tempImage.setPixel(x,y,qRgb(255,255,255));
+    }
+}
+tempImage.save("C:/mycode/Qt Quick/ImageProcessing/temp13.png");
+
+
+
+QPointF last,middle,next;
+QList<QPointF> tempList;
+tempList=finalpoints;
+finalpoints.clear();
+for(int i=0;i<tempList.size();i++)
+{
+    if(next.isNull()){next=middle=tempList.at(i); continue;}
+    last=middle;
+    middle=next;
+    next = tempList.at(i);
+    float radian_slopeLast,radian_slopeCurrent;
+    if(middle.x()-last.x()==0)radian_slopeLast=0.15070796;
+    else  radian_slopeLast = ((middle.y()-last.y())/(middle.x()-last.x()));
+    if(next.x()-middle.x()==0)radian_slopeCurrent=0.15070796;
+    else  radian_slopeCurrent = ((next.y()-middle.y())/(next.x()-middle.x()));
+    if(qAbs(radian_slopeLast-radian_slopeCurrent)>0.2)
+        finalpoints.append(middle);
+}
+
+
+for(int i=0;i<finalpoints.size();i++)
+{  QPointF p = finalpoints.at(i);
+    for(int j=0;j<finalpoints.size();j++)
+    {
+        if(i==j)continue;
+        QPointF p2 = finalpoints.at(j);
+        double distance = qSqrt((p2.x()-p.x())*(p2.x()-p.x()))+((p2.y()-p.y())*(p2.y()-p.y()));
+        if(distance<20)finalpoints.removeAt(j);
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void drawLine(QImage * image,QPointF p1,QPointF p2)
+{
+    float slope,constant;
+    if(p1.x()-p2.x()==0)slope=INFINITY;
+    else slope = (float)(p2.y()-p1.y())/(float)(p2.x()-p1.x());
+    constant = -slope*p1.x()+p1.y();
+    QPoint b1(0,constant),b2(image->width(), slope*image->width()+constant);
+    QPainter painter(image);
+    QPen pen; pen.setWidth(5);
+    pen.setColor("blue");
+    painter.setPen(pen);
+    painter.drawLine(b1,b2);
+    painter.end();
+}
+
+
+
+QList<QPointF> getCornerPoints(QImage * image,QList<QPointF> pinPoint)
+{
+    QPointF a(0,0),b(image->width(),0),c(image->width(),image->height()),d(0,image->height());
+    QLineF line1(pinPoint.at(0),pinPoint.at(1));
+    QLineF line2(pinPoint.at(2),pinPoint.at(3));
+    QLineF line3(pinPoint.at(4),pinPoint.at(5));
+    QLineF line4(pinPoint.at(6),pinPoint.at(7));
+
+    QPointF temp;
+    if(line1.intersects(line4,&temp)!=QLineF::NoIntersection)
+    {
+        if(temp.x()>image->width())temp.setX(image->width());
+        if(temp.y()>image->height())temp.setY(image->height());
+        if(temp.x()<0)temp.setX(0);
+        if(temp.y()<0)temp.setY(0);
+        a=temp;
+    }
+    if(line1.intersects(line2,&temp)!=QLineF::NoIntersection)
+    {
+        if(temp.x()>image->width())temp.setX(image->width());
+        if(temp.y()>image->height())temp.setY(image->height());
+        if(temp.x()<0)temp.setX(0);
+        if(temp.y()<0)temp.setY(0);
+        b=temp;
+    }
+    if(line3.intersects(line2,&temp)!=QLineF::NoIntersection)
+    {
+        if(temp.x()>image->width())temp.setX(image->width());
+        if(temp.y()>image->height())temp.setY(image->height());
+        if(temp.x()<0)temp.setX(0);
+        if(temp.y()<0)temp.setY(0);
+        c=temp;
+    }
+    if(line3.intersects(line4,&temp)!=QLineF::NoIntersection)
+    {
+        if(temp.x()>image->width())temp.setX(image->width());
+        if(temp.y()>image->height())temp.setY(image->height());
+        if(temp.x()<0)temp.setX(0);
+        if(temp.y()<0)temp.setY(0);
+        d=temp;
+    }
+    return QList<QPointF>({a,b,c,d});
+}
+
+
+
+
+
+
+
+
+QList<QPointF> convexHull(QList<QPointF> points)
+{
+
+    auto orientation = [](QPointF p, QPointF q, QPointF r)
+    {
+        int val = (q.y() - p.y()) * (r.x() - q.x()) -
+                (q.x() - p.x()) * (r.y() - q.y());
+
+        if (val == 0) return 0;
+        return (val > 0)? 1: 2;
+    };
+
+    // There must be at least 3 points
+    int n= points.size();
+    if (n < 3) QList<QPointF>();
+
+    QList<QPointF> hull;
+
+    int l = 0;
+    for (int i = 1; i < n; i++)
+        if (points.at(i).x() < points.at(i).x())
+            l = i;
+
+    int p = l, q;
+    do
+    {
+        hull.push_back(points[p]);
+
+        q = (p+1)%n;
+        for (int i = 0; i < n; i++)
+        {
+            if (orientation(points[p], points[i], points[q]) == 2)
+                q = i;
+        }
+        p = q;
+
+    } while (p != l);  // While we don't come to first point
+
+    return  hull;
+}

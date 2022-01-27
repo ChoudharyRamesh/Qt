@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/xml">
+        <file>xml files/xmldemo.xml</file>
+    </qresource>
+</RCC>

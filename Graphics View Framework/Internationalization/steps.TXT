@@ -1,0 +1,22 @@
+// setup project prepare string in ts file
+// generating ts files
+//translating in qt designer
+//generating qm files
+//qtranslator
+//loding official qt translator
+//saving user translation choice
+
+
+tr("text);
+lupdate -pro myprohect.pro -ts hindi.ts
+translate hindi.ts with qt lingustic editor
+generate qm file of hindi.ts ( lrelease hindi.ts )
+now you can delete hindi.ts if you want :D
+add this translation as resource file
+use QTranslator
+
+now problem came when you open qt default dialog they appear in english
+so how to translate them into native language --> Qt official translation
+C:\Qt\5.15.0\mingw81_64\translations
+
+

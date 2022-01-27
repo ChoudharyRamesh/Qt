@@ -1,0 +1,5 @@
+sources
+https://www.youtube.com/watch?v=yDiScAD5w7E
+https://alliance.seas.upenn.edu/~cis581/Lectures/Fall2017/CIS581Fall17-04.pdf
+https://computationalthinking.mit.edu/Fall20/lecture1/
+https://en.wikipedia.org/wiki/Gaussian_blur

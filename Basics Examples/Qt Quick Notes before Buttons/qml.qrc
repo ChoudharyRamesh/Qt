@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>CustomButton.qml</file>
+        <file>HtmlText.qml</file>
+        <file>MButton.qml</file>
+        <file>utility.js</file>
+        <file>js2.js</file>
+        <file>js3.js</file>
+    </qresource>
+</RCC>

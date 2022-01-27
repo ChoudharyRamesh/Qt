@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Installer>
+    <Name>Flappy Bird</Name>
+    <Version>1.0.0</Version>
+    <Title>Flappy Bird Installer</Title>
+    <Publisher>The Code Panel</Publisher>
+    <StartMenuDir>Flappy Bird</StartMenuDir>
+    <TargetDir>@HomeDir@/Flappy Bird</TargetDir>
+</Installer>

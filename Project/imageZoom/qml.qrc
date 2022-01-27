@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>ZoomableImage.qml</file>
+        <file>image/myImage.jpg</file>
+    </qresource>
+</RCC>

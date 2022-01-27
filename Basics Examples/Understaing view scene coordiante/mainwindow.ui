@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>521</width>
+    <height>381</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout" stretch="2">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="View" name="graphicsView"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>521</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFit">
+    <property name="title">
+     <string>Menu</string>
+    </property>
+    <addaction name="action_FitInView"/>
+    <addaction name="actionscene_Rect"/>
+    <addaction name="actionview_rect"/>
+    <addaction name="actionview_center"/>
+    <addaction name="actionscene_center"/>
+    <addaction name="actionitem_Bounding_rect"/>
+    <addaction name="actionitem_pos"/>
+    <addaction name="actionall_item_Bounding_rect"/>
+    <addaction name="actionpin_scene_center"/>
+    <addaction name="actionmap_view_center_in_scene"/>
+    <addaction name="actionmap_scene_center_in_view"/>
+   </widget>
+   <widget class="QMenu" name="menuitemsize">
+    <property name="title">
+     <string>itemsize</string>
+    </property>
+    <addaction name="actionplus"/>
+    <addaction name="actionminus"/>
+   </widget>
+   <addaction name="menuFit"/>
+   <addaction name="menuitemsize"/>
+  </widget>
+  <action name="action_FitInView">
+   <property name="text">
+    <string>fir</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="actionscene_Rect">
+   <property name="text">
+    <string>scene Rect</string>
+   </property>
+   <property name="shortcut">
+    <string>S, R</string>
+   </property>
+  </action>
+  <action name="actionview_rect">
+   <property name="text">
+    <string>view rect</string>
+   </property>
+   <property name="shortcut">
+    <string>V, R</string>
+   </property>
+  </action>
+  <action name="actionview_center">
+   <property name="text">
+    <string>view center</string>
+   </property>
+   <property name="shortcut">
+    <string>V, C</string>
+   </property>
+  </action>
+  <action name="actionscene_center">
+   <property name="text">
+    <string>scene center</string>
+   </property>
+   <property name="shortcut">
+    <string>S, C</string>
+   </property>
+  </action>
+  <action name="actionitem_Bounding_rect">
+   <property name="text">
+    <string>item Bounding rect</string>
+   </property>
+   <property name="shortcut">
+    <string>Q</string>
+   </property>
+  </action>
+  <action name="actionitem_pos">
+   <property name="text">
+    <string>item pos</string>
+   </property>
+   <property name="shortcut">
+    <string>W</string>
+   </property>
+  </action>
+  <action name="actionall_item_Bounding_rect">
+   <property name="text">
+    <string>all item Bounding rect</string>
+   </property>
+   <property name="shortcut">
+    <string>B</string>
+   </property>
+  </action>
+  <action name="actionplus">
+   <property name="text">
+    <string>plus</string>
+   </property>
+   <property name="shortcut">
+    <string>+</string>
+   </property>
+  </action>
+  <action name="actionminus">
+   <property name="text">
+    <string>minus</string>
+   </property>
+   <property name="shortcut">
+    <string>-</string>
+   </property>
+  </action>
+  <action name="actionpin_scene_center">
+   <property name="text">
+    <string>pin scene center</string>
+   </property>
+   <property name="shortcut">
+    <string>P</string>
+   </property>
+  </action>
+  <action name="actionmap_view_center_in_scene">
+   <property name="text">
+    <string>map view center in scene</string>
+   </property>
+   <property name="shortcut">
+    <string>M, V</string>
+   </property>
+  </action>
+  <action name="actionmap_scene_center_in_view">
+   <property name="text">
+    <string>map scene center in view</string>
+   </property>
+   <property name="shortcut">
+    <string>M, S</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>View</class>
+   <extends>QGraphicsView</extends>
+   <header>view.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

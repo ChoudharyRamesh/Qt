@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Fonts/CursiveFont.ttf</file>
+        <file>Fonts/MyFont.ttf</file>
+        <file>Template/CursiveGrey.png</file>
+        <file>Template/CursiveWhite.png</file>
+        <file>Template/EmptyGrey.png</file>
+        <file>Template/EmptyWhite.png</file>
+        <file>Template/MyFontGrey.png</file>
+        <file>Template/MyFontWhite.png</file>
+    </qresource>
+</RCC>

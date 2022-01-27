@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-webmvc</artifactId>
+          <scope>test2</scope>
+    </dependency>
+ 
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-web</artifactId>
+        <version>4.1.4.RELEASE</version>
+          <scope>test3</scope>
+    </dependency>
+     
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-core</artifactId>
+        <version>4.1.4.RELEASE</version>
+          <scope>test4</scope>
+    </dependency>
+
+  </dependencies>

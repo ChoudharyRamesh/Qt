@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/piller.png</file>
+        <file>images/RedBird1.png</file>
+        <file>images/RedBird2.png</file>
+        <file>images/RedBird3.png</file>
+        <file>images/RedBird4.png</file>
+        <file>images/RedBird5.png</file>
+        <file>images/RedBird6.png</file>
+        <file>images/RedBird7.png</file>
+        <file>images/RedBird8.png</file>
+        <file>images/RedBird9.png</file>
+        <file>images/RedBird10.png</file>
+        <file>images/RedBird11.png</file>
+        <file>images/RedBird12.png</file>
+        <file>images/background.jpg</file>
+        <file>images/game-over.png</file>
+        <file>images/pause.png</file>
+        <file>images/restart.png</file>
+        <file>images/resume.png</file>
+    </qresource>
+</RCC>
