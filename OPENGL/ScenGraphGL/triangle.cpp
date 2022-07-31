@@ -28,7 +28,6 @@ QSGNode * Triangle::updatePaintNode(QSGNode * oldNode , UpdatePaintNodeData * da
 
         rootNode->appendChildNode(transformNode);
         transformNode->appendChildNode(textureNode);
-
     }
     else
     {

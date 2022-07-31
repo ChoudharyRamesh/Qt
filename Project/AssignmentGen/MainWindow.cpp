@@ -1,5 +1,6 @@
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
+#include <QStandardPaths>
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -56,7 +57,7 @@ Widget::Widget(QWidget *parent)
     //load path from setting
     QString savePath = setting.value("rooPath").toString();
     if(savePath.isEmpty())
-        setting.setValue("rooPath","C:/AssignmentGenerator");
+        setting.setValue("rooPath",QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation)+"/AssignmentGen");
     else rootPath = savePath;
     // check path existance
     if(!QDir(rootPath).exists())
@@ -776,4 +777,3 @@ void Widget::on_randomFgcCheckBox_toggled(bool checked)
 {
     allowRandomForegroundColor=checked;
 }
-

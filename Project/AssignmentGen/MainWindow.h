@@ -64,7 +64,6 @@ private slots:
     void on_perspectiveBackgroundButton_clicked();
     void on_randomFgcCheckBox_toggled(bool checked);
 
-
 private:
     Ui::Widget *ui;
     QList<View *> viewList;

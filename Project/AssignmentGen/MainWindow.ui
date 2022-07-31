@@ -380,10 +380,7 @@
         </layout>
        </item>
        <item>
-        <widget class="Line" name="line_8">
-         <property name="lineWidth">
-          <number>2</number>
-         </property>
+        <widget class="Line" name="line_11">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
@@ -415,7 +412,7 @@
           <x>0</x>
           <y>0</y>
           <width>615</width>
-          <height>561</height>
+          <height>555</height>
          </rect>
         </property>
         <property name="sizePolicy">
